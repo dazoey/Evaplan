@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getPublicEvents, deleteEvent } from '../api/eventApi'
 import EventCard from '../components/EventCard'
-import Header from '../components/Header'
 
 export default function Home() {
   const [events, setEvents] = useState([])
@@ -38,18 +37,17 @@ export default function Home() {
 
   return (
     <>
-      <Header />
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-xl font-semibold mb-4">All Events</h2>
+      <h2 className="text-green-500 text-lg mb-4">$ list-events</h2>
 
-        {loading && <p>Loading events...</p>}
+      {loading && <p>Loading events...</p>}
 
-        {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-red-500">{error}</p>}
 
-        {!loading && !error && events.length === 0 && (
-          <p className="text-sm text-black/60">Belum ada event</p>
-        )}
+      {!loading && !error && events.length === 0 && (
+        <p className="text-gray-500">No events found.</p>
+      )}
 
+      <div className="space-y-4">
         {!loading && !error && events.map(ev => (
           <EventCard key={ev.id} event={ev} onDelete={handleDelete} />
         ))}

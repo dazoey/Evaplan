@@ -1,54 +1,71 @@
 export default function EventForm({ form, setForm, onSubmit }) {
   const handle = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const inputStyle = "w-full p-3 bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-green-500";
+  const labelStyle = "block text-sm text-gray-400 mb-1";
 
   return (
-    <form onSubmit={onSubmit} className="max-w-xl mx-auto space-y-4">
-      <input
-        name="title"
-        value={form.title}
-        onChange={handle}
-        placeholder="Title"
-        className="w-full border border-black/20 p-3 rounded"
-      />
-
-      <textarea
-        name="description"
-        value={form.description}
-        onChange={handle}
-        placeholder="Description (optional)"
-        className="w-full border border-black/20 p-3 rounded h-28"
-      />
-
+    <form onSubmit={onSubmit} className="max-w-xl space-y-6">
       <div>
-        <label className="text-sm">Start Time</label>
+        <label htmlFor="title" className={labelStyle}>Title:</label>
         <input
-          type="datetime-local"
-          name="start_time"
-          value={form.start_time}
+          id="title"
+          name="title"
+          value={form.title}
           onChange={handle}
-          className="w-full border border-black/20 p-3 rounded mt-1"
+          placeholder="Event Title"
+          className={inputStyle}
+          required
         />
       </div>
 
       <div>
-        <label className="text-sm">End Time</label>
-        <input
-          type="datetime-local"
-          name="end_time"
-          value={form.end_time}
+        <label htmlFor="description" className={labelStyle}>Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          value={form.description}
           onChange={handle}
-          className="w-full border border-black/20 p-3 rounded mt-1"
+          placeholder="Details about the event..."
+          className={`${inputStyle} h-28`}
         />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="start_time" className={labelStyle}>Start Time:</label>
+          <input
+            id="start_time"
+            type="datetime-local"
+            name="start_time"
+            value={form.start_time}
+            onChange={handle}
+            className={inputStyle}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="end_time" className={labelStyle}>End Time:</label>
+          <input
+            id="end_time"
+            type="datetime-local"
+            name="end_time"
+            value={form.end_time}
+            onChange={handle}
+            className={inputStyle}
+            required
+          />
+        </div>
       </div>
 
       <button
         type="submit"
-        className="w-full border border-black font-medium py-3 rounded hover:bg-black hover:text-white transition"
+        className="w-full bg-green-500 text-gray-900 font-bold py-3 rounded hover:bg-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-green-300"
       >
-        Save Event
+        Execute
       </button>
     </form>
-  )
+  );
 }
