@@ -1,13 +1,12 @@
-import express from "express";
-import cors from "cors";
-import eventsRouter from "./routes/events.js";
+import express from 'express'
+import cors from 'cors'
+import eventRoutes from './routes/eventRoutes.js'
 
-const app = express();
+const app = express()
 
-app.use(cors());
-app.use(express.json());
+app.use(cors())
+app.use(express.json())
 
-// routes
-app.use("/events", eventsRouter);
+app.use('/api/events', eventRoutes)
 
-export default app;
+export default app
