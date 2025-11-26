@@ -11,8 +11,9 @@ export const EventService = {
 
   async getPublic() {
     const { data, error } = await supabase
-      .from('public_events')
+      .from('events')
       .select('*')
+      .eq('is_public', true)
       .order('start_time', { ascending: true })
     return { data, error }
   },
