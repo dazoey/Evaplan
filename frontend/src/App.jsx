@@ -1,16 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import AddEvent from './pages/AddEvent'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        prep
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/add" element={<AddEvent />} />
+    </Routes>
   )
 }
-
-export default App
