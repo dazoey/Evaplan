@@ -1,11 +1,10 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL: 'http://localhost:4000/api/events'
-
+  baseURL: '/api/events'
 })
 
-export const getPublicEvents = () => API.get('/public')
+export const getPublicEvents = () => API.get('?public=true')
 export const getAllEvents = () => API.get('/')
 export const getEventById = (id) => API.get(`/${id}`)
 export const searchEvents = (params) => API.get('/search', { params })
