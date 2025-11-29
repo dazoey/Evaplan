@@ -1,32 +1,31 @@
 import { Link } from 'react-router-dom';
 import ReloadPrompt from './ReloadPrompt';
+import NavBar from './NavBar';
 
 export default function Layout({ children }) {
   return (
     <div className="flex flex-col h-screen bg-gray-900 text-gray-200 font-mono">
       {/* Header */}
       <header className="flex items-center h-10 px-4 bg-gray-800 flex-shrink-0">
-        <div className="flex items-center">
-          {/* <div className="h-3 w-3 mr-2 rounded-full bg-red-500"></div>
-          <div className="h-3 w-3 mr-2 rounded-full bg-yellow-500"></div>
-          <div className="h-3 w-3 rounded-full bg-green-500"></div> */}
+        <div className="flex-1 text-center text-sm md:text-left">
+          <Link to="/" className="hover:underline hidden md:inline">event-tracker</Link>
         </div>
-        <div className="flex-1 text-center text-sm">
-          <Link to="/" className="hover:underline">event-tracker</Link>
+        <div className="hidden md:block">
+          <NavBar />
         </div>
-        <nav className="text-sm">
-          <Link to="/add" className="hover:underline">
-            + Add Event
-          </Link>
-        </nav>
       </header>
       
       {/* Main Content */}
-      <main className="flex-1 p-4 overflow-y-auto">
+      <main className="flex-1 p-4 overflow-y-auto pb-16 md:pb-4"> {/* Add pb-16 for mobile to account for bottom nav */}
         {children}
       </main>
 
       <ReloadPrompt />
+
+      {/* Mobile NavBar */}
+      <div className="md:hidden">
+        <NavBar />
+      </div>
 
       {/* Footer */}
       <footer className="bg-gray-800 p-2 text-xs text-center flex-shrink-0">
