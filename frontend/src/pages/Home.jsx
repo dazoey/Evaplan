@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getPublicEvents, deleteEvent } from '../api/eventApi'
+import { getPublicEvents } from '../api/eventApi'
 import EventCard from '../components/EventCard'
 
 export default function Home() {
@@ -25,16 +25,6 @@ export default function Home() {
     }
   }
 
-  const handleDelete = async (id) => {
-    try {
-      await deleteEvent(id)
-      load()
-    } catch (err) {
-      console.error('Failed to delete event:', err)
-      // Optionally, show an error message to the user
-    }
-  }
-
   return (
     <>
       <h2 className="text-green-500 text-lg mb-4">$ list-events</h2>
@@ -49,7 +39,7 @@ export default function Home() {
 
       <div className="space-y-4">
         {!loading && !error && events.map(ev => (
-          <EventCard key={ev.id} event={ev} onDelete={handleDelete} />
+          <EventCard key={ev.id} event={ev} />
         ))}
       </div>
     </>

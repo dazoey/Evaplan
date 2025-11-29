@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ReloadPrompt from './ReloadPrompt';
 
 export default function Layout({ children }) {
   return (
@@ -24,6 +25,8 @@ export default function Layout({ children }) {
       <main className="flex-1 p-4 overflow-y-auto">
         {children}
       </main>
+
+      <ReloadPrompt />
 
       {/* Footer */}
       <footer className="bg-gray-800 p-2 text-xs text-center flex-shrink-0">
