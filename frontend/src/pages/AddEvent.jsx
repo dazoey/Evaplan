@@ -9,7 +9,7 @@ export default function AddEvent() {
     start_time: '',
     end_time: ''
   })
-
+  //  ini fungsi buat ngirim data event ke backend
   const submit = async (e) => {
     e.preventDefault()
     e.target.querySelector('button').innerText = 'Submitting...';

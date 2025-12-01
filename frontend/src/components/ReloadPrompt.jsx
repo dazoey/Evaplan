@@ -1,25 +1,28 @@
 import { useRegisterSW } from 'virtual:pwa-register/react'
-
+// ini logika buat notif reload data
 function ReloadPrompt() {
   const {
     offlineReady: [offlineReady, setOfflineReady],
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
+    // ini fungsi buat registrasi service worker
   } = useRegisterSW({
     onRegistered(r) {
       console.log(`SW Registered: ${r}`)
     },
+    // ini fungsi buat error registrasi service worker
     onRegisterError(error) {
       console.log('SW registration error', error)
     },
   })
-
+// ini fungsi buat close notif
   const close = () => {
     setOfflineReady(false)
     setNeedRefresh(false)
   }
 
   return (
+    // buat notif reload data
     <div className="p-4 fixed right-0 bottom-0">
       { (offlineReady || needRefresh)
         && <div className="p-4 rounded bg-gray-800 border border-gray-700">
