@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       {/* Header */}
       <header className="flex items-center h-10 px-4 bg-gray-800 flex-shrink-0">
         <div className="flex-1 text-center text-sm md:text-left">
-          <Link to="/" className="hover:underline hidden md:inline">event-tracker</Link>
+          <Link to="/" className="hover:underline hidden md:inline">EvaPlan</Link>
         </div>
         <div className="hidden md:block">
           <NavBar />
