@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 export default function EventCard({ event }) {
-  // Format dates for better readability
+  // ini format start and end times
   const startTime = new Date(event.start_time).toLocaleString();
   const endTime = new Date(event.end_time).toLocaleString();
 
@@ -15,7 +15,7 @@ export default function EventCard({ event }) {
           </p>
         </div>
       </div>
-
+      {/* ini buat ngisi deskripsi event */}
       {event.description && (
         <p className="mt-3 text-sm text-gray-300 border-l-2 border-gray-700 pl-3">{event.description}</p>
       )}
