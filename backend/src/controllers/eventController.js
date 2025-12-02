@@ -3,17 +3,15 @@ import { validateEvent } from '../utils/validateEvent.js'
 // logika bauat ngurusin request dan response terkait event
 export const EventController = {
   async getAll(req, res) {
-    const { data, error } = 
-    await EventService.getAll()
-    
+    const { data, error } = await EventService.getAll()
+
     if (error) 
       return res.status(500).json({ error })
     res.json(data)
   },
 // ini fungsi buat nampilin event yang bersifat public
   async getPublic(req, res) {
-    const { data, error } = 
-    await EventService.getPublic()
+    const { data, error } = await EventService.getPublic()
 
     if (error) 
       return res.status(500).json({ error })
@@ -22,8 +20,7 @@ export const EventController = {
 
 // ini fungsi buat nampilin detail event berdasarkan id
   async getById(req, res) {
-    const { data, error } = 
-    await EventService.getById(req.params.id)
+    const { data, error } = await EventService.getById(req.params.id)
 
     if (error) 
       return res.status(404).json({ error })
@@ -38,8 +35,7 @@ export const EventController = {
       return res.status(400).json({ error: vError })
 
 // panggil service buat create event
-    const { data, error } = 
-    await EventService.create(req.body)
+    const { data, error } = await EventService.create(req.body)
     if (error) 
       return res.status(500).json({ error })
     res.status(201).json(data)
@@ -47,8 +43,7 @@ export const EventController = {
 
 // ini fungsi buat ngupdate data event
   async update(req, res) {
-    const { data, error } = 
-    await EventService.update(
+    const { data, error } = await EventService.update(
       req.params.id,
       req.body
     )
@@ -61,8 +56,7 @@ export const EventController = {
 
 // ini fungsi buat ngapus event
   async remove(req, res) {
-    const { data, error } = 
-    await EventService.remove(req.params.id)
+    const { data, error } = await EventService.remove(req.params.id)
 
     if (error) 
       return res.status(500).json({ error })
@@ -71,8 +65,7 @@ export const EventController = {
 
 // ini fungsi buat nyari event berdasarkan query
   async search(req, res) {
-    const { data, error } = 
-    await EventService.search(req.query)
+    const { data, error } = await EventService.search(req.query)
     
     if (error) 
       return res.status(500).json({ error })
