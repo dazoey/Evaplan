@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { EventController } from '../controllers/eventController.js'
 
 const router = Router()
-
+// define routes terkait event (endpoint API) di sini
 router.get('/', EventController.getAll)
 router.get('/public', EventController.getPublic)
 router.get('/search', EventController.search)
