@@ -12,8 +12,15 @@ export default function AddEvent() {
   //  ini fungsi buat ngirim data event ke backend
   const submit = async (e) => {
     e.preventDefault()
+
+    const trimmedTitle = form.title.trim()
+    if (trimmedTitle === '') {
+      alert('Title cannot be empty or just spaces')
+      return
+    }
+
     e.target.querySelector('button').innerText = 'Submitting...';
-    await createEvent(form)
+    await createEvent({ ...form, title: trimmedTitle })
     window.location.href = '/'
   }
 
