@@ -12,7 +12,7 @@ export default function AddEvent() {
   //  ini fungsi buat ngirim data event ke backend
   const submit = async (e) => {
     e.preventDefault()
-
+    // untuk fungsi validasi sederhana di frontend
     const trimmedTitle = form.title.trim()
     if (trimmedTitle === '') {
       alert('Title cannot be empty or just spaces')
