@@ -3,7 +3,7 @@ export function validateEvent(body) {
   if (!body.title || !body.start_time || !body.end_time) {
     return { error: 'title, start_time, end_time wajib diisi' }
   }
-
+  // validasi kosong atau hanya spasi
   if (body.title.trim() === '') {
     return { error: 'title tidak boleh kosong atau hanya berisi spasi' }
   }
