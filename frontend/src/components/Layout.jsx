@@ -28,9 +28,9 @@ export default function Layout({ children }) {
       </div>
 
       {/* Footer (sebenernya ga butuh2 amat cuma iseng bikin beginian) */}
-      <footer className="bg-gray-800 p-2 text-xs text-center flex-shrink-0">
+      {/* <footer className="bg-gray-800 p-2 text-xs text-center flex-shrink-0">
         <p>Status: <span className="text-green-500">OK</span></p>
-      </footer>
+      </footer> */}
     </div>
   );
 }
