@@ -16,7 +16,7 @@ export default function Layout({ children }) {
       </header>
       
       {/* konten utama */}
-      <main className="flex-1 p-4 overflow-y-auto pb-16 md:pb-4"> {/* Add pb-16 for mobile to account for bottom nav */}
+      <main className="flex-1 p-4 overflow-y-auto pb-24 md:pb-4"> {/* Add pb-24 for mobile to account for bottom nav */}
         {children}
       </main>
 
@@ -27,7 +27,7 @@ export default function Layout({ children }) {
         <NavBar />
       </div>
 
-      {/* Footer (sebenernya ga butuh2 amat cuma iseng bikin beginian) */}
+      {/* Footer (g penting) */}
       {/* <footer className="bg-gray-800 p-2 text-xs text-center flex-shrink-0">
         <p>Status: <span className="text-green-500">OK</span></p>
       </footer> */}
