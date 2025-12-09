@@ -1,11 +1,20 @@
 import { supabase } from '../config/supabase.js'
 // logika buat ngurusin operasi terkait event di database
 export const EventService = {
-  async getAll() {
-    const { data, error } = await supabase
-      .from('events')
-      .select('*')
-      .order('start_time', { ascending: true })
+  async getAll({ isPublic, sortBy, order }) {
+    let query = supabase.from('events').select('*')
+
+    if (isPublic) {
+      query = query.eq('is_public', true)
+    }
+
+    if (sortBy) {
+      query = query.order(sortBy, { ascending: order === 'asc' })
+    } else {
+      query = query.order('start_time', { ascending: true })
+    }
+
+    const { data, error } = await query
     return { data, error }
   },
 // ini fungsi buat nampilin event yang bersifat public
