@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react'
 import { getPublicEvents } from '../api/eventApi'
 import EventCard from '../components/EventCard'
-// ini logika buat halaman utama yang nampilin daftar event
+
 export default function Home() {
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-// ini efek buat ngeload daftar event pas component pertama kali di render
+  const [sortOrder, setSortOrder] = useState('start_time,asc')
+
   useEffect(() => {
     load()
-  }, [])
-// ini fungsi buat ngeload daftar event dari backend
+  }, [sortOrder])
+
   const load = async () => {
     try {
       setLoading(true)
-      const res = await getPublicEvents()
+      const [sortBy, order] = sortOrder.split(',')
+      const res = await getPublicEvents(sortBy, order)
       setEvents(res.data)
       setError(null)
     } catch (err) {
@@ -26,18 +28,25 @@ export default function Home() {
   }
 
   return (
-    // ini buat nampilin daftar event
     <>
-      <h2 className="text-green-500 text-lg mb-4">$ list-events</h2>
-      {/* ini buat loading state */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-green-500 text-lg">$ list-events</h2>
+        <select 
+          className="bg-gray-800 text-white p-2 rounded"
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="start_time,asc">Sort by Date (Asc)</option>
+          <option value="start_time,desc">Sort by Date (Desc)</option>
+          <option value="name,asc">Sort by Name (A-Z)</option>
+          <option value="name,desc">Sort by Name (Z-A)</option>
+        </select>
+      </div>
       {loading && <p>Loading events...</p>}
-      { /* ini buat error state */}
       {error && <p className="text-red-500">{error}</p>}
-      {/* ini buat nampilin pesan kalo ngga ada event */}
       {!loading && !error && events.length === 0 && (
         <p className="text-gray-500">No events found.</p>
       )}
-      {/* ini buat nampilin daftar event kalo ada */}
       <div className="space-y-4">
         {!loading && !error && events.map(ev => (
           <EventCard key={ev.id} event={ev} />
