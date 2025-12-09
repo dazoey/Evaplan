@@ -3,7 +3,8 @@ import { validateEvent } from '../utils/validateEvent.js'
 // logika bauat ngurusin request dan response terkait event
 export const EventController = {
   async getAll(req, res) {
-    const { data, error } = await EventService.getAll()
+    const { isPublic, sortBy, order } = req.query
+    const { data, error } = await EventService.getAll({ isPublic, sortBy, order })
 
     if (error) 
       return res.status(500).json({ error })
