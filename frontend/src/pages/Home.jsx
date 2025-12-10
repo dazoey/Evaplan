@@ -38,8 +38,8 @@ export default function Home() {
         >
           <option value="start_time,asc">Sort by Date (Asc)</option>
           <option value="start_time,desc">Sort by Date (Desc)</option>
-          <option value="name,asc">Sort by Name (A-Z)</option>
-          <option value="name,desc">Sort by Name (Z-A)</option>
+          {/* <option value="name,asc">Sort by Name (A-Z)</option>
+          <option value="name,desc">Sort by Name (Z-A)</option> */}
         </select>
       </div>
       {loading && <p>Loading events...</p>}
