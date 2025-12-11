@@ -42,6 +42,7 @@ export default function Home() {
           <option value="name,desc">Sort by Name (Z-A)</option> */}
         </select>
       </div>
+      {/* ini buat nampilin list event */}
       {loading && <p>Loading events...</p>}
       {error && <p className="text-red-500">{error}</p>}
       {!loading && !error && events.length === 0 && (
