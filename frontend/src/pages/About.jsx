@@ -16,9 +16,9 @@ export default function About() {
           <li>Node.js and Express for the backend</li>
           <li>Supabase for the database</li>
         </ul>
-        <p>
+        {/* <p>
           It is a Progressive Web App (PWA), which means it can be installed on your device and used offline.
-        </p>
+        </p> */}
       </div>
     </div>
   )
