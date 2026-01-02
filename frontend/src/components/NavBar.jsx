@@ -18,13 +18,13 @@ export default function NavBar() {
         <span className="md:hidden">Add</span>
         <span className="hidden md:inline">+ Add Event</span>
       </Link>
-      {/* ini buat about page
+      {/* ini buat about page */}
       <Link to="/about" className={linkClass}>
         <FaInfoCircle className={iconClass} />
         <span>About</span>
       </Link>
-       ini buat profile page
-      <Link to="/profile" className={linkClass}>
+       {/* ini buat profile page */}
+      {/* <Link to="/profile" className={linkClass}>
         <FaUser className={iconClass} />
         <span>Profile</span>
       </Link> */}
