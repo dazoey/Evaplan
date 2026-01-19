@@ -15,6 +15,7 @@ export default function About() {
           <li>Tailwind CSS for styling</li>
           <li>Node.js and Express for the backend</li>
           <li>Supabase for the database</li>
+          <li>React Router for navigation</li>
         </ul>
         {/* <p>
           It is a Progressive Web App (PWA), which means it can be installed on your device and used offline.
