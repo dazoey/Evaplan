@@ -23,11 +23,6 @@ export default function NavBar() {
         <FaInfoCircle className={iconClass} />
         <span>About</span>
       </Link>
-       {/* ini buat profile page */}
-      {/* <Link to="/profile" className={linkClass}>
-        <FaUser className={iconClass} />
-        <span>Profile</span>
-      </Link> */}
     </nav>
   );
 }
