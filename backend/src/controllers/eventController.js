@@ -28,7 +28,7 @@ export const EventController = {
     res.json(data)
   },
 
-// ini fungsi buat nambahin event baru
+// ini fungsi buat nambahin event baru keknya
   async create(req, res) {
     const { error: vError } = validateEvent(req.body)
 
