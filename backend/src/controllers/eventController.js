@@ -19,7 +19,7 @@ export const EventController = {
     res.json(data)
   },
 
-// ini fungsi buat nampilin detail event berdasarkan id
+// ini fungsi buat nampilin detail event berdasarkan id kayanya
   async getById(req, res) {
     const { data, error } = await EventService.getById(req.params.id)
 
