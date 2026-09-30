@@ -1,6 +1,6 @@
 ## Author
 
-Muhammad Rifky Athaya|21120123140129
+Muhammad Rifky Athaya
 
 # Evaplan: Aplikasi Manajemen Acara / Event Management Application
 
