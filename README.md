@@ -5,8 +5,6 @@
 
 ---
 
-## Bahasa Indonesia
-
 ### Evaplan: Aplikasi Manajemen Acara
 
 Evaplan adalah aplikasi manajemen acara full-stack yang memungkinkan pengguna untuk membuat, melihat, memperbarui, dan menghapus acara. Aplikasi ini memiliki frontend berbasis React dan backend Node.js Express.
