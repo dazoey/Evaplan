@@ -48,7 +48,7 @@ Ikuti petunjuk ini untuk menyiapkan dan menjalankan proyek secara lokal.
     cd Evaplan
     ```
 
-2.  **Penyiapan Backend:**
+2.  **Setup Backend:**
     Arahkan ke direktori `backend`, instal dependensi, dan siapkan variabel lingkungan.
 
     ```bash
